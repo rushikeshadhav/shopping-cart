@@ -49,7 +49,7 @@ export default function Home() {
             <div>{cartCount}</div>
           </Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
           {products?.map((product) => (
             <div
               key={product.id}
@@ -57,12 +57,14 @@ export default function Home() {
             >
               {showPopup ? <Popup itemName="Product" /> : null}
               {product?.image ? (
-                <Image
-                  src={product?.image}
-                  width={300}
-                  height={300}
-                  alt="image"
-                />
+                <div className="w-80 h-80 overflow-hidden">
+                  <Image
+                    src={product?.image}
+                    width={300}
+                    height={300}
+                    alt="image"
+                  />
+                </div>
               ) : null}
               <div className="flex flex-col gap-2">
                 <h2>{product.title}</h2>
